@@ -18,6 +18,10 @@ const CandidateSchema = new mongoose.Schema(
       type: Number,
       required: [true, "you must provide a level"],
     },
+    vote: {
+      type: Number,
+      default: 0,
+    },
     email: {
       type: String,
       required: [true, "Must provide a valid email"],
