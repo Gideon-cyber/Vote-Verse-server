@@ -6,7 +6,7 @@ const OTPschema = new mongoose.Schema(
       type: Number,
       //   required: [true, "must enter a valid otp"],
     },
-    createdAt: { type: Date, default: Date.now(), expires: 90000000 },
+    createdAt: { type: Date, default: Date.now(), expires: 90000000000 },
   },
   { timestamps: true }
 );
