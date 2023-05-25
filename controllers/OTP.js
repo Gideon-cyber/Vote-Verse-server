@@ -5,9 +5,10 @@ import mailer from "../config/nodemailer.js";
 export const getOTP = async (req, res) => {
   try {
     const { matric } = req.body;
+    console.log(typeof matric);
     const BIC = BICS.BIC;
     if (!matric) {
-      res.status(400).send({message:"please Provide your matric"});
+      res.status(400).send({ message: "please Provide your matric" });
     } else {
       const Voter = await BIC.find({ matric });
       // console.log(Voter)
@@ -17,6 +18,8 @@ export const getOTP = async (req, res) => {
       const max = 9999;
       const otp = Math.floor(Math.random() * (max - min + 1)) + min;
       console.log(otp);
+      console.log(email);
+
       if (Voter) {
         const newOTP = await new OTP({
           otp,
@@ -30,7 +33,7 @@ export const getOTP = async (req, res) => {
           user: Voter,
         });
       } else {
-        return res.status(401).send({message:"voter not found"});
+        return res.status(401).send({ message: "voter not found" });
       }
     }
   } catch (err) {
@@ -54,7 +57,7 @@ export const VerifyOTP = async (req, res) => {
   try {
     const { matric, otp } = req.body;
     if (!matric) {
-      res.status(403).send({message:"missing parameter"});
+      res.status(403).send({ message: "missing parameter" });
     } else {
       const foundOTP = await OTP.find({ otp });
       if (foundOTP.length != 0) {
@@ -86,7 +89,9 @@ export const VerifyOTP = async (req, res) => {
           });
         }
       } else {
-        res.status(401).send({message:"otp is invalid or expired, please try again"});
+        res
+          .status(401)
+          .send({ message: "otp is invalid or expired, please try again" });
       }
     }
   } catch (err) {
