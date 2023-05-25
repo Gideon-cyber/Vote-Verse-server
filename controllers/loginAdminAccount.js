@@ -87,7 +87,7 @@ export const VoterLogin = async (req, res) => {
     }
   } catch (err) {
     res.status(401).send({
-      message: "something went wrong",
+      message: "you are not eligible to vote",
     });
     console.log(err.message);
   }
