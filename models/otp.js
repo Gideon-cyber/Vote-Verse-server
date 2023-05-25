@@ -9,7 +9,7 @@ const OTPschema = new mongoose.Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      // expires: Date.now() + 90000000000,
+      expires: 90000000, // Set the expiration time in milliseconds
     },
   },
   { timestamps: true }
