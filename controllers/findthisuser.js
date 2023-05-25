@@ -5,7 +5,7 @@ export const FindThisUser = async (req, res) => {
   console.log(parameter);
   const BIC = BICS.BIC;
   try {
-    const foundThisUser = await BIC.findOne({
+    const foundThisUser = await BIC.find({
       $or: [
         { firstName: { $regex: parameter, $options: "i" } },
         { lastName: { $regex: parameter, $options: "i" } },
