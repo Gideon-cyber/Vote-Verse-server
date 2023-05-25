@@ -45,7 +45,7 @@ export default AdminLogin;
 
 export const VoterLogin = async (req, res) => {
   const BIC = BICS.BIC;
-  const { matric, email } = req.body;
+  const { matric } = req.body;
   try {
     if (!matric) {
       res.status(401).send({ message: "Wrong email/password" });
@@ -56,7 +56,6 @@ export const VoterLogin = async (req, res) => {
 
       const email = FindThisVoter.email;
       console.log(FindThisVoter);
-      console.log(email);
 
       if (FindThisVoter) {
         if (FindThisVoter.Accredited === null || FindThisVoter.Voted === true) {
