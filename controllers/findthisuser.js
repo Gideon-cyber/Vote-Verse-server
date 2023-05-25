@@ -27,7 +27,9 @@ export const FindThisUser = async (req, res) => {
 
     if (foundThisUser) {
       console.log(foundThisUser);
-      res.status(200).json(foundThisUser);
+      res
+        .status(200)
+        .json({ users: foundThisUser, number: foundThisUser.length });
     } else {
       res.status(404).json({ message: "User not found" });
     }
