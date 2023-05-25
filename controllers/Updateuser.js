@@ -156,6 +156,20 @@ export const UpdateThisUser = async (req, res) => {
         update8,
         options8
       );
+      //Update candidtate9
+      const filter9 = { firstName: candidate9 };
+      const update9 = {
+        $inc: {
+          vote: 1,
+        },
+      };
+      const options9 = { new: true };
+
+      const updateCandidate9 = await Runner.findOneAndUpdate(
+        filter9,
+        update9,
+        options9
+      );
 
       console.log(updatedUser);
       if (updatedUser) {
