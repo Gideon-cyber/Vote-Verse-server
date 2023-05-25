@@ -19,7 +19,6 @@
 // export default OTP;
 
 import mongoose from "mongoose";
-
 const OTPschema = new mongoose.Schema(
   {
     otp: {
