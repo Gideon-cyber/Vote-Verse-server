@@ -28,7 +28,7 @@ export const getOTP = async (req, res) => {
         mailer(email, "please Verify using the OTP code ", otp.toString());
         return res.status(201).send({
           success: true,
-          message: " Check your email for Verification link",
+          message: `Check your ${email} for Verification otp`,
           otp: otp,
           user: Voter,
         });
