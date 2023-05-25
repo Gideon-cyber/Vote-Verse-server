@@ -8,16 +8,16 @@ const mailer = (mail, subject, text) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.AUTH_MAIL,
-      pass: process.env.AUTH_PASS
-    }
+      user: " patoctave99@gmail.com",
+      pass: "kjksxvvyxtoldilv",
+    },
   });
 
   const mailOptions = {
     from: "patoctave99@gmail.com",
     to: mail,
     subject: subject,
-    text: text
+    text: text,
   };
 
   transporter
