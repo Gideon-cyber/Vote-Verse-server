@@ -11,7 +11,7 @@ const DeleteCandidate = async (req, res) => {
     });
   } catch (err) {
     res.status(403).send({
-      message: "an error occured",
+      message: err.message,
     });
   }
 };
