@@ -6,6 +6,7 @@ import router from "./Routes/routes.js";
 import bicStudents from "./SampleData/sampledata.js";
 import { BICSTUDENTS } from "./SampleData/sampledata.js";
 import BICS from "./models/BIC.js";
+import Pizza from "./models/PizzaUser.js";
 
 //define the server
 const app = express();
@@ -74,6 +75,8 @@ mongoose
       // const loadDB = await BIC.insertMany(BICSTUDENTS);
       // console.log(loadDB);
       // const deldB = await BIC.deleteMany();
+      // const delPizza = await Pizza.deleteMany();
+      // console.log(delPizza);
     })
   )
   .then(() => console.log("DB connected"))
