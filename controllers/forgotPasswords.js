@@ -38,6 +38,7 @@ export const ForgetPasswordGetOtp = async (req, res) => {
           status: true,
           message: `Kindly check ${email} for OTP`,
           user: FindUserByEmail,
+          otp: newOTP,
         });
       } else {
         res.status(401).json({
