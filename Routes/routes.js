@@ -13,6 +13,11 @@ import { VoterLogin } from "../controllers/loginAdminAccount.js";
 import { findAllCandidates } from "../controllers/findAllCandidates.js";
 import { FindAdminRegisteredVoters } from "../controllers/newUser.js";
 import DeleteCandidate from "../controllers/deleteCandidate.js";
+import PizzaSignUp from "../controllers/PizzaSignUp.js";
+import PizzaSignIn from "../controllers/PizzaSignIn.js";
+import { ForgetPasswordGetOtp } from "../controllers/forgotPasswords.js";
+import { ForgetPasswordVerifyOTP } from "../controllers/forgotPasswords.js";
+import ChangePassword from "../controllers/ChangePassword.js";
 const router = express.Router();
 
 router.post("/verifyUser", VerifyUser); //this is an additional route to find a user by matric only
@@ -30,4 +35,10 @@ router.post("/deleteCandidate", DeleteCandidate);
 router.get("/findAllUsers", findAllUsers);
 router.get("/findAllCandidates", findAllCandidates);
 
+//For Pizza
+router.post("/pizzaSignUp", PizzaSignUp); //signup for pizz APP
+router.post("/pizzaSignIn", PizzaSignIn); //signin for pizza app
+router.post("/forgetPasswordgetotp", ForgetPasswordGetOtp);
+router.post("/verifypasswordotp", ForgetPasswordVerifyOTP);
+router.post("/changePasswordotp", ChangePassword);
 export default router;
