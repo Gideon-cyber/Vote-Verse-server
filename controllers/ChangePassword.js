@@ -13,19 +13,19 @@ const ChangePassword = async (req, res) => {
       const options = { new: true };
       const updatedUser = await Pizza.findOneAndUpdate(filter, update, options);
       res.status(200).json({
-        success: true,
-        message: "Your password has been changed successfully",
+        status: true,
+        message: "Your password has been changed statusfully",
         updatedUser: updatedUser,
       });
     } else {
       res.status(403).json({
-        success: false,
+        status: false,
         message: "Something went wrong, try again later.",
       });
     }
   } catch (err) {
     res.status(403).json({
-      success: false,
+      status: false,
       message: err.message,
     });
   }

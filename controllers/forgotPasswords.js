@@ -7,7 +7,7 @@ export const ForgetPasswordGetOtp = async (req, res) => {
     const { email } = req.body;
     if (!email) {
       res.status(401).json({
-        success: false,
+        status: false,
         message: "Please Provide a valid email address",
       });
     } else {
@@ -35,20 +35,20 @@ export const ForgetPasswordGetOtp = async (req, res) => {
           otp.toString()
         );
         res.status(201).json({
-          success: true,
+          status: true,
           message: `Kindly check ${email} for OTP`,
           user: FindUserByEmail,
         });
       } else {
         res.status(401).json({
-          success: false,
+          status: false,
           message: "User does not exist",
         });
       }
     }
   } catch (err) {
     res.status(401).json({
-      success: false,
+      status: false,
       message: err.message,
     });
   }
@@ -59,7 +59,7 @@ export const ForgetPasswordVerifyOTP = async (req, res) => {
   try {
     if (!otp) {
       res.status(401).json({
-        success: false,
+        status: false,
         message: "Please provide a valid otp",
       });
     } else {
@@ -67,7 +67,7 @@ export const ForgetPasswordVerifyOTP = async (req, res) => {
       console.log(FindOTP);
       if (FindOTP.length === 0) {
         res.status(401).json({
-          success: false,
+          status: false,
           message: "OTP is invalid or expired",
           otp: FindOTP,
         });
@@ -75,14 +75,14 @@ export const ForgetPasswordVerifyOTP = async (req, res) => {
         const deleteOTP = await OTP.findOneAndDelete({ otp });
         console.log(deleteOTP);
         res.status(201).json({
-          success: true,
+          status: true,
           message: "OTP is valid",
         });
       }
     }
   } catch (err) {
     res.status(401).json({
-      success: false,
+      status: false,
       message: err.message,
     });
   }
