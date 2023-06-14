@@ -46,6 +46,13 @@ const CandidateSchema = new mongoose.Schema(
       type: String,
       required: [true, "must decribe your office"],
     },
+    department: {
+      type: String,
+      required: [true, "must provide a valid department"],
+    },
+    image: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -5,9 +5,10 @@ import mailer from "../config/nodemailer.js";
 export const getOTP = async (req, res) => {
   try {
     const { matric } = req.body;
+    console.log(typeof matric);
     const BIC = BICS.BIC;
     if (!matric) {
-      res.status(400).send({ message: "Please Provide your matric" });
+      res.status(400).send({ message: "please Provide your matric" });
     } else {
       const Voter = await BIC.find({ matric });
       // console.log(Voter)
@@ -17,6 +18,8 @@ export const getOTP = async (req, res) => {
       const max = 9999;
       const otp = Math.floor(Math.random() * (max - min + 1)) + min;
       console.log(otp);
+      console.log(email);
+
       if (Voter) {
         const newOTP = await new OTP({
           otp,
@@ -25,7 +28,7 @@ export const getOTP = async (req, res) => {
         mailer(email, "please Verify using the OTP code ", otp.toString());
         return res.status(201).send({
           success: true,
-          message: " Check your email for Verification link",
+          message: `Check your ${email} for Verification otp`,
           otp: otp,
           user: Voter,
         });

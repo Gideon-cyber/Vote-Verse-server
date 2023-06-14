@@ -18,6 +18,14 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please provide a name"],
     },
+    department: {
+      type: String,
+      required: [true, "must provide a valid department"],
+    },
+    level: {
+      type: String,
+      required: [true, "Please provide a name"],
+    },
     lastName: {
       type: String,
       required: [true, "Please provide a name"],
