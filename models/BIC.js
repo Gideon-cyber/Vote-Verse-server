@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema(
     },
     Accredited: {
       type: Boolean,
-      default: null,
+      default: true,
     },
     Voted: {
       type: Boolean,
@@ -20,11 +20,9 @@ const UserSchema = new mongoose.Schema(
     },
     department: {
       type: String,
-      required: [true, "must provide a valid department"],
     },
     level: {
       type: String,
-      required: [true, "Please provide a name"],
     },
     lastName: {
       type: String,
