@@ -11,6 +11,7 @@ const CreateNewCandidate = async (req, res) => {
       phone,
       office,
       description,
+      image,
     } = req.body;
 
     if (
@@ -21,7 +22,8 @@ const CreateNewCandidate = async (req, res) => {
       !email ||
       !phone ||
       !office ||
-      !description
+      !description ||
+      !image
     ) {
       res.status(401).send({ message: "You must provide all credentials" });
     } else {
@@ -34,10 +36,11 @@ const CreateNewCandidate = async (req, res) => {
         phone,
         office,
         description,
+        image,
       });
 
       const existingCandidate = await Runner.findOne({ matric });
-      console.log(existingCandidate)
+      console.log(existingCandidate);
       if (existingCandidate) {
         res.status(404).send({ message: "Candidate already exist" });
       } else {
