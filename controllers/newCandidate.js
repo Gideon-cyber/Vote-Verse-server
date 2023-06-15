@@ -12,6 +12,7 @@ const CreateNewCandidate = async (req, res) => {
       office,
       description,
       image,
+      department,
     } = req.body;
 
     if (
