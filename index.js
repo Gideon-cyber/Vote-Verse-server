@@ -7,6 +7,7 @@ import bicStudents from "./SampleData/sampledata.js";
 import { BICSTUDENTS } from "./SampleData/sampledata.js";
 import BICS from "./models/BIC.js";
 import Pizza from "./models/PizzaUser.js";
+import Runner from "./models/Candidate.js";
 
 //define the server
 const app = express();
@@ -74,7 +75,10 @@ mongoose
       const BIC = BICS.BIC;
       // const loadDB = await BIC.insertMany(BICSTUDENTS);
       // console.log(loadDB);
+      // const delCand = await Runner.deleteMany();
       // const deldB = await BIC.deleteMany();
+      // console.log(delCand);
+      // console.log(deldB);
       // const delPizza = await Pizza.deleteMany();
       // console.log(delPizza);
     })
