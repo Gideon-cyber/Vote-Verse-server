@@ -23,7 +23,8 @@ const CreateNewCandidate = async (req, res) => {
       !phone ||
       !office ||
       !description ||
-      !image
+      !image ||
+      !department
     ) {
       res.status(401).send({ message: "You must provide all credentials" });
     } else {
@@ -37,6 +38,7 @@ const CreateNewCandidate = async (req, res) => {
         office,
         description,
         image,
+        department,
       });
 
       const existingCandidate = await Runner.findOne({ matric });
