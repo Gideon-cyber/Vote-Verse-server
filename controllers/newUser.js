@@ -3,25 +3,26 @@ import { Admin } from "../models/admin.js";
 import { BICSTUDENTS } from "../SampleData/sampledata.js";
 const CreateVoter = async (req, res) => {
   try {
-    //  const load = BICSTUDENTS.map(
-    // async ({ firstName, lastName, email, matric, admin }) => {
-    const BIC = BICS.BIC;
+    // const load = BICSTUDENTS.map(
+    //   async ({ firstName, lastName, email, matric, admin }) => {
+        const BIC = BICS.BIC;
     const { firstName, lastName, email, matric, admin } = req.body;
-    // console.log(req.body);
-    const newVoter = await new BIC({
-      firstName,
-      lastName,
-      email,
-      matric,
-    });
+    console.log(req.body);
+
     if (!firstName || !lastName || !matric || !email) {
       res.status(401).send({ message: "Supply all credentials" });
     } else {
       const existingVoter = await BIC.find({ matric });
-      // console.log(existingVoter);
+      console.log(` existing voter ===>>  ${existingVoter}`);
       if (existingVoter.length !== 0) {
         res.status(403).send({ message: "Voter has already been registered" });
       } else {
+        const newVoter = await new BIC({
+          firstName,
+          lastName,
+          email,
+          matric,
+        });
         const createdVoter = await newVoter.save();
 
         //now let us find which Admin created this user and then update him
@@ -40,20 +41,20 @@ const CreateVoter = async (req, res) => {
           upate,
           option
         );
-        // console.log(adminThatCreatedThisVoter);
+        console.log(`admin ===>>>  ${adminThatCreatedThisVoter}`);
         if (adminThatCreatedThisVoter) {
           res.status(200).send({
             message: "Successfully created",
             createdVoter: createdVoter,
             creator: adminThatCreatedThisVoter,
           });
-          // console.log("Success");
+          console.log("Success");
         } else {
           res.status(401).send({ message: "failed to create User" });
         }
       }
     }
-    //   }
+    // }
     // );
   } catch (err) {
     console.error(err);
