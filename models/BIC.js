@@ -60,12 +60,12 @@ const UserSchema = new mongoose.Schema(
     vicePresident: {
       type: String,
     },
-    sport: {
-      type: String,
-    },
-    social: {
-      type: String,
-    },
+    // sport: {
+    //   type: String,
+    // },
+    // social: {
+    //   type: String,
+    // },
     pro: {
       type: String,
     },
