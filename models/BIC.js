@@ -78,6 +78,16 @@ const UserSchema = new mongoose.Schema(
     AGS: {
       type: String,
     },
+    specialDuties: {
+      type: String,
+    },
+
+    FLC1: {
+      type: String,
+    },
+    FLC2: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
