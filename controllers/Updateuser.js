@@ -33,9 +33,9 @@ export const UpdateThisUser = async (req, res) => {
         $set: {
           president: candidate1 || "null",
           vicePresident: candidate2 || "null",
-          sport: candidate3 || "null",
+          // sport: candidate3 || "null",
           gensec: candidate4 || "null",
-          social: candidate5 || "null",
+          // social: candidate5 || "null",
           pro: candidate6 || "null",
           finsec: candidate7 || "null",
           treasurer: candidate8 || "null",
