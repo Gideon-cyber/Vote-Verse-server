@@ -21,12 +21,12 @@ const mailer = (mail, subject, text, firstName) => {
     <div style="width: 100%; background-color: #CBD1D8; padding: 5rem 0">
     <div style="max-width: 700px; margin: 0 auto; background-color: #CBD1D8; margin: 0 auto">
     <div style="width: 100%; background-color: #3568FF; padding: 20px 0; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem">
-    <a href="https://vote-verse.vercel.app" style='color: #fff'; >Vote-Verse</a>
+    <a href="https://vote-verse.vercel.app" style='color: #fff; margin: 0 auto'; >Vote-Verse</a>
 
 
     </div>
     <div style="width: 100%; gap: 10px: padding: 30px 0; display: grid">
-    <h1 style="font-size: 1.25rem; margin: 15px 20px">Dear ${firstName}</h1>
+    <h1 style="font-size: 1.25rem; margin: 15px 20px">Dear User</h1>
     <p style="font-size: .8rem; margin: 10px 30px">Thank you for choosing Vote-verse </p>
 
     <p style="font-size: .8rem; margin: 0 30px">Here is your OTP: ${text} </p>

@@ -11,15 +11,16 @@ export const getOTP = async (req, res) => {
       res.status(400).send({ message: "please Provide your matric" });
     } else {
       const Voter = await BIC.find({ matric });
-      // console.log(Voter)
+      console.log("Voter", Voter);
       const email = Voter[0].email;
       const firstName = Voter[0].firstName;
-      console.log(email);
+      console.log("email", email);
+      console.log("firstName", firstName);
       const min = 1000;
       const max = 9999;
       const otp = Math.floor(Math.random() * (max - min + 1)) + min;
-      console.log(otp);
-      console.log(email);
+      // console.log(otp);
+      // console.log(email);
 
       if (Voter) {
         const newOTP = await new OTP({
@@ -30,7 +31,7 @@ export const getOTP = async (req, res) => {
           email,
           "please Verify using the OTP code ",
           otp.toString(),
-          Voter.firstName
+          Voter[0].firstName
         );
         return res.status(201).send({
           success: true,
