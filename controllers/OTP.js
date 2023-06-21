@@ -13,6 +13,7 @@ export const getOTP = async (req, res) => {
       const Voter = await BIC.find({ matric });
       // console.log(Voter)
       const email = Voter[0].email;
+      const firstName = Voter[0].firstName;
       console.log(email);
       const min = 1000;
       const max = 9999;
@@ -25,7 +26,12 @@ export const getOTP = async (req, res) => {
           otp,
         });
         const sentOTP = await newOTP.save();
-        mailer(email, "please Verify using the OTP code ", otp.toString());
+        mailer(
+          email,
+          "please Verify using the OTP code ",
+          otp.toString(),
+          firstName
+        );
         return res.status(201).send({
           success: true,
           message: `Check your ${email} for Verification otp`,
