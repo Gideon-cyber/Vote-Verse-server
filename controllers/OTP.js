@@ -30,7 +30,7 @@ export const getOTP = async (req, res) => {
           email,
           "please Verify using the OTP code ",
           otp.toString(),
-          firstName
+          Voter.firstName
         );
         return res.status(201).send({
           success: true,

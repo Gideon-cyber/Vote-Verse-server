@@ -18,10 +18,10 @@ const mailer = (mail, subject, text, firstName) => {
     to: mail,
     subject: subject,
     html: `
-    <div style="width: 100%; background-color: #59B5FF; padding: 5rem 0">
-    <div style="max-width: 700px; margin: 0 auto; background-color: #EBF3FA; margin: 0 auto">
-    <div style="width: 100%; background-color: #3568FF; padding: 20px 0; color: #fff">
-    <a href="https://vote-verse.vercel.app" >Vote-Verse</a>
+    <div style="width: 100%; background-color: #CBD1D8; padding: 5rem 0">
+    <div style="max-width: 700px; margin: 0 auto; background-color: #CBD1D8; margin: 0 auto">
+    <div style="width: 100%; background-color: #3568FF; padding: 20px 0; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem">
+    <a href="https://vote-verse.vercel.app" style='color: #fff'; >Vote-Verse</a>
 
 
     </div>
