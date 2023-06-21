@@ -76,7 +76,7 @@ export const VoterLogin = async (req, res) => {
 
           return res.status(201).send({
             success: true,
-            message: " Check your email for otp",
+            message: `Check your ${email} for otp`,
             otp: otp,
             voter: FindThisVoter,
           });
