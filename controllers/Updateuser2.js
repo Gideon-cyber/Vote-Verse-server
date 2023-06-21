@@ -1,16 +1,14 @@
 import BICS from "../models/BIC.js";
 import Runner from "../models/Candidate.js";
 
-export const UpdateThisUser = async (req, res) => {
+export const UpdateThisUser2 = async (req, res) => {
   try {
     const BIC = BICS.BIC;
     const {
       matric,
       candidate1,
       candidate2,
-      // candidate3,
       candidate4,
-      // candidate5,
       candidate6,
       candidate7,
       candidate8,
