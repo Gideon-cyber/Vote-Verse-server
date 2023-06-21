@@ -1,6 +1,8 @@
 import express from "express";
 import { VerifyUser } from "../controllers/verifyUser.js";
 import { UpdateThisUser } from "../controllers/Updateuser.js";
+import { UpdateThisUser2 } from "../controllers/Updateuser2.js";
+
 import { FindThisUser } from "../controllers/findthisuser.js";
 import { findAllUsers } from "../controllers/findAllUser.js";
 import CreateVoter from "../controllers/newUser.js";
@@ -22,6 +24,7 @@ const router = express.Router();
 
 router.post("/verifyUser", VerifyUser); //this is an additional route to find a user by matric only
 router.post("/updateThisUser", UpdateThisUser);
+router.post("/updateThisUserOnly", UpdateThisUser2);
 router.post("/findThisUser", FindThisUser);
 router.post("/register", CreateVoter);
 router.post("/candidate", CreateNewCandidate);
