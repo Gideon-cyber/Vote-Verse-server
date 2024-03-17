@@ -30,13 +30,9 @@ const updateAccreditStatus = async (req, res) => {
     const updatedAccreditation = await Accredit.findOneAndUpdate(
       {},
       { is_accredit: req.body.is_accredit },
-      { new: true }
+      { new: true, upsert: true } // Use upsert: true to create the document if not found
     );
-    if (!updatedVote) {
-      return res
-        .status(404)
-        .json({ message: "accreditation document not found" });
-    }
+
     res.status(200).json({
       is_accredit: updatedAccreditation.is_accredit,
       has_error: false,

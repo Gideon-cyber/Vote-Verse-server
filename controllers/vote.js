@@ -30,11 +30,9 @@ const updateVoteStatus = async (req, res) => {
     const updatedVote = await Vote.findOneAndUpdate(
       {},
       { can_vote: req.body.can_vote },
-      { new: true }
+      { new: true, upsert: true }
     );
-    if (!updatedVote) {
-      return res.status(404).json({ message: "Vote document not found" });
-    }
+
     res.status(200).json({
       can_vote: updatedVote.can_vote,
       has_error: false,

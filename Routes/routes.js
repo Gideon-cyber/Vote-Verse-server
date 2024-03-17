@@ -44,7 +44,7 @@ router.get("/findAllUsers", findAllUsers);
 router.get("/findAllCandidates", findAllCandidates);
 
 router.get("/vote/status", getVoteStatus);
-router.post("vote/status", updateVoteStatus);
+router.post("/vote/status", updateVoteStatus);
 router.get("/accredit/status", getAccreditStatus);
 router.post("/accredit/status", updateAccreditStatus);
 
