@@ -8,13 +8,13 @@ const UserSchema = new mongoose.Schema(
     },
     Accredited: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     Voted: {
       type: Boolean,
       default: null,
     },
-    firstName: {
+    name: {
       type: String,
       required: [true, "Please provide a name"],
     },
@@ -23,10 +23,6 @@ const UserSchema = new mongoose.Schema(
     },
     level: {
       type: String,
-    },
-    lastName: {
-      type: String,
-      required: [true, "Please provide a name"],
     },
     email: {
       type: String,
@@ -60,12 +56,12 @@ const UserSchema = new mongoose.Schema(
     vicePresident: {
       type: String,
     },
-    // sport: {
-    //   type: String,
-    // },
-    // social: {
-    //   type: String,
-    // },
+    sport: {
+      type: String,
+    },
+    social: {
+      type: String,
+    },
     pro: {
       type: String,
     },
@@ -78,16 +74,16 @@ const UserSchema = new mongoose.Schema(
     AGS: {
       type: String,
     },
-    specialDuties: {
-      type: String,
-    },
+    // specialDuties: {
+    //   type: String,
+    // },
 
-    FLC1: {
-      type: String,
-    },
-    FLC2: {
-      type: String,
-    },
+    // FLC1: {
+    //   type: String,
+    // },
+    // FLC2: {
+    //   type: String,
+    // },
   },
   { timestamps: true }
 );

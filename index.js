@@ -62,8 +62,10 @@ const PORT = process.env.PORT || 8080;
 
 mongoose
   .connect(
-    "mongodb+srv://mongodb:SS6ARbOU4LiwEYAi@cluster0.i9foyr2.mongodb.net/",
+    // "mongodb+srv://mongodb:SS6ARbOU4LiwEYAi@cluster0.i9foyr2.mongodb.net/",
     //mongodb+srv://mongodb:SS6ARbOU4LiwEYAi@cluster0.i9foyr2.mongodb.net/?retryWrites=true&w=majority"
+    // "mongodb+srv://admin:admin@bic.siax8qk.mongodb.net/?retryWrites=true&w=majority&appName=BIC",
+    "mongodb+srv://gideon:admin@bic.65icbqe.mongodb.net/?retryWrites=true&w=majority&appName=BIC",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

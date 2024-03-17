@@ -20,6 +20,11 @@ import PizzaSignIn from "../controllers/PizzaSignIn.js";
 import { ForgetPasswordGetOtp } from "../controllers/forgotPasswords.js";
 import { ForgetPasswordVerifyOTP } from "../controllers/forgotPasswords.js";
 import ChangePassword from "../controllers/ChangePassword.js";
+import { getVoteStatus, updateVoteStatus } from "../controllers/vote.js";
+import {
+  getAccreditStatus,
+  updateAccreditStatus,
+} from "../controllers/accredit.js";
 const router = express.Router();
 
 router.post("/verifyUser", VerifyUser); //this is an additional route to find a user by matric only
@@ -37,6 +42,11 @@ router.post("/findadminvoters", FindAdminRegisteredVoters);
 router.post("/deleteCandidate", DeleteCandidate);
 router.get("/findAllUsers", findAllUsers);
 router.get("/findAllCandidates", findAllCandidates);
+
+router.get("/vote/status", getVoteStatus);
+router.post("vote/status", updateVoteStatus);
+router.get("/accredit/status", getAccreditStatus);
+router.post("/accredit/status", updateAccreditStatus);
 
 //For Pizza
 router.post("/pizzaSignUp", PizzaSignUp); //signup for pizz APP

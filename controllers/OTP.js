@@ -13,7 +13,7 @@ export const getOTP = async (req, res) => {
       const Voter = await BIC.find({ matric });
       console.log("Voter", Voter);
       const email = Voter[0].email;
-      const firstName = Voter[0].firstName;
+      const firstName = Voter[0].name;
       console.log("email", email);
       console.log("firstName", firstName);
       const min = 1000;
@@ -78,7 +78,7 @@ export const VerifyOTP = async (req, res) => {
         const checkIfUserIsAccredited = await BICS.BIC.findOne(filter);
         if (checkIfUserIsAccredited.Accredited) {
           res.status(403).send({
-            message: "you are already accredited",
+            message: "you are already accredited 😊",
             user: checkIfUserIsAccredited,
           });
         } else {
@@ -91,7 +91,7 @@ export const VerifyOTP = async (req, res) => {
           console.log(deletedOTP);
           res.status(201).send({
             message:
-              "Verification was successful, you are now being accredited",
+              "Verification was successful, you are now accredited to vote 😊",
             accreditedUser: AccreditedUser,
           });
         }

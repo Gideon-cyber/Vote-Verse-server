@@ -1,25 +1,35 @@
 import BICS from "../models/BIC.js";
 import { Admin } from "../models/admin.js";
-import { BICSTUDENTS } from "../SampleData/sampledata.js";
+import bicStudents, {
+  BICSTUDENTS,
+  Level1,
+  Level2,
+  Level3,
+  Level4,
+} from "../SampleData/sampledata.js";
 const CreateVoter = async (req, res) => {
   try {
-    // const load = BICSTUDENTS.map(
-    //   async ({ firstName, lastName, email, matric, admin }) => {
-        const BIC = BICS.BIC;
-    const { firstName, lastName, email, matric, admin } = req.body;
+    // Level4.map(async ({ name, email, matric, admi }) => {
+    const BIC = BICS.BIC;
+    // const admin = 100100;
+    const { name, email, matric, admin } = req.body;
     console.log(req.body);
 
-    if (!firstName || !lastName || !matric || !email) {
+    if (!name || !matric || !email) {
       res.status(401).send({ message: "Supply all credentials" });
     } else {
-      const existingVoter = await BIC.find({ matric });
-      console.log(` existing voter ===>>  ${existingVoter}`);
+      const existingVoter = await BIC.find({ $or: [{ matric }, { email }] });
+
       if (existingVoter.length !== 0) {
-        res.status(403).send({ message: "Voter has already been registered" });
+        // console.log("Existing Voter", existingVoter, existingVoter2);
+        res.status(403).send({
+          message: "Voter has already been registered",
+          has_error: true,
+        });
+        return;
       } else {
         const newVoter = await new BIC({
-          firstName,
-          lastName,
+          name,
           email,
           matric,
         });
@@ -47,19 +57,68 @@ const CreateVoter = async (req, res) => {
             message: "Successfully created",
             createdVoter: createdVoter,
             creator: adminThatCreatedThisVoter,
+            has_error: false,
           });
           console.log("Success");
         } else {
-          res.status(401).send({ message: "failed to create User" });
+          res
+            .status(401)
+            .send({ message: "failed to create User", has_error: true });
         }
       }
     }
-    // }
-    // );
+    // });
   } catch (err) {
     console.error(err);
   }
 };
+
+// const CreateVoter = async (req, res) => {
+//   try {
+//     console.log(BICSTUDENTS.length);
+//     console.log("100level", Level1.length);
+//     console.log("200level", Level2.length);
+//     console.log("300level", Level3.length);
+//     console.log("400level", Level4.length);
+
+//     // Assuming Level4 is an array of objects containing voter information
+//     for (const { name, email, matric } of Level1) {
+//       const BIC = BICS.BIC;
+//       const admin = 100100;
+
+//       if (!name || !matric || !email) {
+//         res.status(401).send({ message: "Supply all credentials" });
+//         return; // Exit the function to prevent further execution
+//       }
+
+//       const existingVoter = await BIC.find({ $or: [{ matric }, { email }] });
+//       if (existingVoter.length !== 0) {
+//         continue; // Skip to the next iteration if the voter already exists
+//       }
+
+//       const newVoter = new BIC({ name, email, matric });
+//       const createdVoter = await newVoter.save();
+
+//       // Find the admin and update
+//       const query = { matric: admin };
+//       const update = { $push: { registeredVoters: createdVoter } };
+//       const options = { upsert: true };
+//       const adminThatCreatedThisVoter = await Admin.findOneAndUpdate(
+//         query,
+//         update,
+//         options
+//       );
+//       console.log(`admin ===>>>  ${adminThatCreatedThisVoter}`);
+//     }
+
+//     // Send a single response after processing all voters
+//     res.status(200).send({ message: "Successfully created all voters" });
+//     console.log("All voters successfully created");
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send({ message: "Internal Server Error" });
+//   }
+// };
 
 export default CreateVoter;
 

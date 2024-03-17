@@ -8,14 +8,16 @@ export const UpdateThisUser2 = async (req, res) => {
       matric,
       candidate1,
       candidate2,
+      candidate3,
       candidate4,
+      candidate5,
       candidate6,
       candidate7,
       candidate8,
       candidate9,
-      candidate10,
-      candidate11,
-      candidate12,
+      // candidate10,
+      // candidate11,
+      // candidate12,
     } = req.body;
     console.log(req.body);
     const userFound = await BIC.findOne({ matric });
@@ -26,16 +28,16 @@ export const UpdateThisUser2 = async (req, res) => {
       $set: {
         president: candidate1 || "null",
         vicePresident: candidate2 || "null",
-        // sport: candidate3 || "null",
+        sport: candidate3 || "null",
         gensec: candidate4 || "null",
-        // social: candidate5 || "null",
+        social: candidate5 || "null",
         pro: candidate6 || "null",
         finsec: candidate7 || "null",
         treasurer: candidate8 || "null",
         AGS: candidate9 || "null",
-        specialDuties: candidate10 || "null",
-        FLC1: candidate11 || "null",
-        FLC2: candidate12 || "null",
+        // specialDuties: candidate10 || "null",
+        // FLC1: candidate11 || "null",
+        // FLC2: candidate12 || "null",
       },
     };
     const options = { new: true };
@@ -71,20 +73,20 @@ export const UpdateThisUser2 = async (req, res) => {
       update2,
       options2
     );
-    // //Update candidtate3
-    // const filter3 = { firstName: candidate3 };
-    // const update3 = {
-    //   $inc: {
-    //     vote: 1,
-    //   },
-    // };
-    // const options3 = { new: true };
+    //Update candidtate3
+    const filter3 = { firstName: candidate3 };
+    const update3 = {
+      $inc: {
+        vote: 1,
+      },
+    };
+    const options3 = { new: true };
 
-    // const updateCandidate3 = await Runner.findOneAndUpdate(
-    //   filter3,
-    //   update3,
-    //   options3
-    // );
+    const updateCandidate3 = await Runner.findOneAndUpdate(
+      filter3,
+      update3,
+      options3
+    );
     //Update candidtate4
     const filter4 = { firstName: candidate4 };
     const update4 = {
@@ -100,19 +102,19 @@ export const UpdateThisUser2 = async (req, res) => {
       options4
     );
     // //Update candidtate5
-    // const filter5 = { firstName: candidate5 };
-    // const update5 = {
-    //   $inc: {
-    //     vote: 1,
-    //   },
-    // };
-    // const options5 = { new: true };
+    const filter5 = { firstName: candidate5 };
+    const update5 = {
+      $inc: {
+        vote: 1,
+      },
+    };
+    const options5 = { new: true };
 
-    // const updateCandidate5 = await Runner.findOneAndUpdate(
-    //   filter5,
-    //   update5,
-    //   options5
-    // );
+    const updateCandidate5 = await Runner.findOneAndUpdate(
+      filter5,
+      update5,
+      options5
+    );
     //Update candidtate6
     const filter6 = { firstName: candidate6 };
     const update6 = {
@@ -170,48 +172,48 @@ export const UpdateThisUser2 = async (req, res) => {
       options9
     );
     //Update candidtate10
-    const filter10 = { firstName: candidate10 };
-    const update10 = {
-      $inc: {
-        vote: 1,
-      },
-    };
-    const options10 = { new: true };
+    // const filter10 = { firstName: candidate10 };
+    // const update10 = {
+    //   $inc: {
+    //     vote: 1,
+    //   },
+    // };
+    // const options10 = { new: true };
 
-    const updateCandidate10 = await Runner.findOneAndUpdate(
-      filter10,
-      update10,
-      options10
-    );
-    //Update candidtate11
-    const filter11 = { firstName: candidate11 };
-    const update11 = {
-      $inc: {
-        vote: 1,
-      },
-    };
-    const options11 = { new: true };
+    // const updateCandidate10 = await Runner.findOneAndUpdate(
+    //   filter10,
+    //   update10,
+    //   options10
+    // );
+    // //Update candidtate11
+    // const filter11 = { firstName: candidate11 };
+    // const update11 = {
+    //   $inc: {
+    //     vote: 1,
+    //   },
+    // };
+    // const options11 = { new: true };
 
-    const updateCandidate11 = await Runner.findOneAndUpdate(
-      filter11,
-      update11,
-      options11
-    );
-    //Update candidtate12
-    const filter12 = { firstName: candidate12 };
-    const update12 = {
-      $inc: {
-        vote: 1,
-      },
-    };
-    const options12 = { new: true };
+    // const updateCandidate11 = await Runner.findOneAndUpdate(
+    //   filter11,
+    //   update11,
+    //   options11
+    // );
+    // //Update candidtate12
+    // const filter12 = { firstName: candidate12 };
+    // const update12 = {
+    //   $inc: {
+    //     vote: 1,
+    //   },
+    // };
+    // const options12 = { new: true };
 
-    const updateCandidate12 = await Runner.findOneAndUpdate(
-      filter12,
-      update12,
-      options12
-    );
-    console.log(updatedUser);
+    // const updateCandidate12 = await Runner.findOneAndUpdate(
+    //   filter12,
+    //   update12,
+    //   options12
+    // );
+    // console.log(updatedUser);
     if (updatedUser) {
       res
         .status(200)

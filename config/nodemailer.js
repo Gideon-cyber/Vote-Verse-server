@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 
 //I am making this component reuseable by making it take 3 customizable arguments
 const mailer = (mail, subject, text, firstName) => {
@@ -28,7 +28,9 @@ const mailer = (mail, subject, text, firstName) => {
 
     </div>
     <div style="width: 100%; gap: 10px: padding: 30px 0; display: grid">
-    <h1 style="font-size: 1.25rem; margin: 15px 20px">Dear User</h1>
+    <h1 style="font-size: 1.25rem; margin: 15px 20px">Dear ${
+      firstName ? firstName : "User"
+    }</h1>
     <p style="font-size: .8rem; margin: 10px 30px">Thank you for choosing Vote-verse </p>
 
     <p style="font-size: .8rem; margin: 0 30px">Here is your OTP: ${text} </p>

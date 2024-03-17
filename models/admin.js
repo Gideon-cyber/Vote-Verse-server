@@ -36,7 +36,7 @@ const AdminSchema = new mongoose.Schema(
       type: String,
       trim: true,
       maxlength: 20,
-      default: "BAMSSA",
+      default: "Biochemistry",
     },
     profileImageURL: {
       type: String,
@@ -58,8 +58,8 @@ const AdminSchema = new mongoose.Schema(
     registeredVoters: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "BICS.BIC"
-      }
+        ref: "BICS.BIC",
+      },
     ],
     lastLogIn: {
       type: Date,
